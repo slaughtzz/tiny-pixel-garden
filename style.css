@@ -1,0 +1,464 @@
+
+/* ========================================
+   TINY PIXEL GARDEN - PIXEL FARM THEME
+   ======================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --green-dark: #315b35;
+  --green: #5c9848;
+  --green-light: #a9d66e;
+  --cream: #fff4d8;
+  --brown: #805238;
+  --brown-dark: #593a2b;
+  --orange: #f3a04b;
+  --pink: #ed9eaa;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
+  font-family: "Courier New", monospace;
+  color: var(--green-dark);
+  background: #bce8f3;
+  image-rendering: pixelated;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 16px;
+  text-align: center;
+  color: #fff7d9;
+  font-size: clamp(24px, 4vw, 42px);
+  text-shadow:
+    3px 3px 0 #8b5738,
+    -2px -2px 0 #8b5738,
+    2px -2px 0 #8b5738,
+    -2px 2px 0 #8b5738;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+h3 {
+  font-size: 15px;
+}
+
+/* Main game area */
+
+#game,
+.game-container,
+main {
+  width: 100%;
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+/* Inventory bar */
+
+#inventory,
+.inventory {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 0 auto 18px;
+  padding: 14px;
+  max-width: 1000px;
+  background: var(--cream);
+  border: 4px solid var(--brown);
+  box-shadow: 0 5px 0 var(--brown-dark);
+}
+
+#inventory > *,
+.inventory > * {
+  padding: 7px 10px;
+  background: #fffdf0;
+  border: 2px solid #d8bd85;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+/* Farm scenery */
+
+.farm-scene {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  min-height: 400px;
+  margin: 0 auto 20px;
+  overflow: hidden;
+  isolation: isolate;
+
+  /* Your custom pixel-art background */
+  background-color: #91d9ef;
+  background-image: url("farm-art.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  border: 5px solid #805238;
+  box-shadow:
+    0 7px 0 #593a2b,
+    inset 0 0 0 4px rgba(255, 244, 216, 0.35);
+}
+
+/* Keep headings readable over the artwork */
+
+.scene-title,
+.farm-scene h2,
+.farm-scene h3 {
+  text-shadow:
+    2px 2px 0 #fff4d8,
+    -1px -1px 0 #fff4d8;
+}
+
+/* Sky decorations, if present in your HTML */
+
+.sky {
+  position: relative;
+  min-height: 100px;
+}
+
+.cloud {
+  color: #fff8e4;
+}
+
+.sun {
+  color: #ffdc66;
+}
+
+/* Farm land */
+
+.farm-land {
+  position: relative;
+  min-height: 280px;
+  padding: 18px;
+  background: transparent;
+}
+
+/* Shed, tree and flower decorations */
+
+.shed,
+.tree-area,
+.flower-row {
+  image-rendering: pixelated;
+}
+
+/* Garden heading */
+
+.garden-heading,
+#garden-heading {
+  display: inline-block;
+  margin: 12px 0;
+  padding: 8px 12px;
+  color: #fff4d8;
+  background: #805238;
+  border: 3px solid #593a2b;
+  text-shadow: 1px 1px #593a2b;
+}
+
+/* Garden plot grid */
+
+#garden {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(50px, 1fr));
+  gap: 8px;
+  width: min(100%, 480px);
+  margin: 20px auto;
+  padding: 12px;
+  background: #805238;
+  border: 5px solid #593a2b;
+  box-shadow:
+    inset 0 0 0 3px #b9824d,
+    0 5px 0 rgba(55, 43, 29, 0.35);
+}
+
+/* Individual soil plots */
+
+.plot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 70px;
+  padding: 5px;
+  color: #fff4d8;
+  font-family: inherit;
+  font-size: 27px;
+  background: #68412f;
+  border: 3px solid #a9784d;
+  border-top-color: #d19a62;
+  border-left-color: #d19a62;
+  cursor: pointer;
+  transition: transform 0.12s ease;
+}
+
+.plot:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.15);
+}
+
+.plot:active {
+  transform: translateY(1px);
+}
+
+.plot:focus-visible {
+  outline: 3px dashed #fff4d8;
+  outline-offset: 2px;
+}
+
+/* Characters at the bottom of the farm */
+
+.farm-characters {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 12px;
+  font-size: 32px;
+}
+
+/* Day counter and game message */
+
+#day-counter,
+.day-counter {
+  width: fit-content;
+  margin: 16px auto;
+  padding: 10px 18px;
+  color: #fff4d8;
+  background: #5b8f48;
+  border: 4px solid #315b35;
+  box-shadow: 0 4px 0 #315b35;
+  font-weight: bold;
+}
+
+#message {
+  max-width: 800px;
+  margin: 16px auto;
+  padding: 12px;
+  text-align: center;
+  color: #593a2b;
+  background: #fff4d8;
+  border: 3px solid #d8bd85;
+  line-height: 1.5;
+}
+
+/* Crop selector and tool panels */
+
+#crop-selector,
+.crop-selector,
+#tools,
+.tools,
+.game-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 16px auto;
+}
+
+/* Buttons */
+
+button {
+  font-family: inherit;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#crop-selector button,
+.crop-selector button,
+#tools button,
+.tools button,
+.game-controls button,
+#plant,
+#water,
+#harvest,
+#next-day,
+#restart,
+#benny {
+  padding: 11px 14px;
+  color: #fff9e8;
+  background: #5c9848;
+  border: 3px solid #315b35;
+  border-bottom-width: 5px;
+  box-shadow: 0 2px 0 rgba(49, 91, 53, 0.2);
+  transition:
+    transform 0.1s ease,
+    filter 0.1s ease;
+}
+
+button:hover {
+  filter: brightness(1.1);
+}
+
+button:active {
+  transform: translateY(3px);
+  border-bottom-width: 2px;
+}
+
+button:focus-visible {
+  outline: 3px dashed #e39b42;
+  outline-offset: 3px;
+}
+
+#plant {
+  background: #5c9848;
+}
+
+#water {
+  background: #438fba;
+  border-color: #245c7b;
+}
+
+#harvest {
+  color: #593a2b;
+  background: #ffd36c;
+  border-color: #b98232;
+}
+
+#next-day {
+  color: #593a2b;
+  background: #f4c66e;
+  border-color: #b98232;
+}
+
+#restart {
+  background: #cb6e65;
+  border-color: #8e443d;
+}
+
+/* Selected crop/tool states */
+
+button.selected,
+button.active,
+button[aria-pressed="true"] {
+  outline: 3px solid #f4c66e;
+  outline-offset: 2px;
+}
+
+/* Benny's market */
+
+#benny-shop,
+.benny-shop,
+#market,
+.market,
+.benny-panel {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 18px;
+  background: var(--cream);
+  border: 4px solid var(--brown);
+  box-shadow: 0 5px 0 var(--brown-dark);
+}
+
+#benny {
+  color: #593a2b;
+  background: #f3c56c;
+  border-color: #a97835;
+}
+
+#dialogue {
+  margin-top: 12px;
+  line-height: 1.7;
+}
+
+#dialogue button {
+  display: inline-block;
+  margin: 5px;
+  padding: 9px 12px;
+  color: #fff9e8;
+  background: #5c9848;
+  border: 3px solid #315b35;
+}
+
+/* Make long market menus easier to read */
+
+#dialogue p {
+  margin-bottom: 10px;
+}
+
+/* Responsive layout for smaller screens */
+
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  #inventory,
+  .inventory {
+    gap: 6px;
+    padding: 8px;
+  }
+
+  #inventory > *,
+  .inventory > * {
+    font-size: 11px;
+    padding: 6px;
+  }
+
+  .farm-scene {
+    min-height: 350px;
+    background-position: center;
+  }
+
+  .farm-land {
+    padding: 8px;
+  }
+
+  #garden {
+    grid-template-columns: repeat(3, minmax(45px, 1fr));
+    gap: 5px;
+    padding: 7px;
+  }
+
+  .plot {
+    min-height: 58px;
+    font-size: 23px;
+  }
+
+  #crop-selector,
+  .crop-selector,
+  #tools,
+  .tools,
+  .game-controls {
+    gap: 7px;
+  }
+
+  #crop-selector button,
+  .crop-selector button,
+  #tools button,
+  .tools button,
+  .game-controls button,
+  #plant,
+  #water,
+  #harvest,
+  #next-day,
+  #restart,
+  #benny {
+    padding: 9px;
+    font-size: 12px;
+  }
+
+  .farm-characters {
+    font-size: 25px;
+  }
+}

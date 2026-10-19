@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tiny Pixel Garden</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="game-header">
+    <p class="eyebrow">YOUR LITTLE CORNER OF THE WORLD</p>
+    <h1>🌻 Tiny Pixel Garden 🌻</h1>
+    <p>Plant a seed, grow a dream, and make your farm bloom!</p>
+  </header>
+
+  <main>
+    <section class="inventory" id="inventory">
+      <div>🪙 Coins: <span id="coins">20</span></div>
+      <div>🥕 Carrots: <span id="carrots">0</span></div>
+      <div>🍅 Tomatoes: <span id="tomatoes">0</span></div>
+      <div>🎃 Pumpkins: <span id="pumpkins">0</span></div>
+      <div>🌱 Carrot seeds: <span id="carrotSeeds">5</span></div>
+      <div>🌱 Tomato seeds: <span id="tomatoSeeds">1</span></div>
+      <div>🌱 Pumpkin seeds: <span id="pumpkinSeeds">0</span></div>
+    </section>
+
+    <section class="farm-scene">
+      <div class="sky">
+        <span class="cloud cloud-one">☁️</span>
+        <span class="cloud cloud-two">☁️</span>
+        <span class="sun">☀️</span>
+        <div class="scene-title">A SUNNY DAY ON THE FARM</div>
+      </div>
+
+      <div class="farm-land">
+        <div class="scenery-top">
+          <div class="shed">
+            <div class="shed-roof">🔺</div>
+            <div class="shed-body">
+              <span>🏡</span>
+              <small>TOOL SHED</small>
+            </div>
+          </div>
+
+          <div class="tree-area">
+            <span class="tree">🌳</span>
+            <span class="bench">🪑</span>
+          </div>
+        </div>
+
+        <div class="flower-row" aria-label="Farm flowers">
+          🌻 🌼 🌷 🌻 🌼 🌷 🌻
+        </div>
+
+        <div class="garden-heading">
+          <h2>🥬 Your Vegetable Garden 🥕</h2>
+          <p>Choose a crop and click a soil plot to plant.</p>
+          <p id="day-counter">Day <span id="day">1</span></p>
+        </div>
+
+        <div id="garden" aria-label="Garden plots"></div>
+
+        <div class="farm-path">
+          <span>🌼</span>
+          <span>🪨</span>
+          <span>🪨</span>
+          <span>🪨</span>
+          <span>🌷</span>
+        </div>
+
+        <div class="farm-characters">
+          <span>🐝</span>
+          <span>👩‍🌾</span>
+          <span>🧺</span>
+          <span>👨‍🌾</span>
+          <span>🦋</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="game-panel">
+      <p id="message" role="status" aria-live="polite">
+        Welcome to Tiny Pixel Garden! Let's grow something wonderful.
+      </p>
+
+      <section class="game-section">
+        <h2>🌱 Choose Your Seeds</h2>
+        <div class="tools crop-picker">
+          <button type="button" data-crop="carrot">🥕 Carrot</button>
+          <button type="button" data-crop="tomato">🍅 Tomato</button>
+          <button type="button" data-crop="pumpkin">🎃 Pumpkin</button>
+        </div>
+      </section>
+
+      <section class="game-section">
+        <h2>🧑‍🌾 Farm Tools</h2>
+        <div class="tools">
+          <button type="button" id="plant">🌱 Plant</button>
+          <button type="button" id="water">💧 Water</button>
+          <button type="button" id="harvest">🧺 Harvest</button>
+        </div>
+        <div class="tools">
+          <button type="button" id="next-day">🌙 Next Day</button>
+          <button type="button" id="restart">🔄 Restart Game</button>
+        </div>
+      </section>
+
+      <section class="market-section">
+        <h2>🏡 Benny's Farm Market</h2>
+        <p>Buy seeds, sell your harvest, trade crops, or complete a quest!</p>
+        <button type="button" id="benny">👨‍🌾 Talk to Benny</button>
+        <div id="dialogue" aria-live="polite">
+          <p>Welcome, farmer! Come visit my market.</p>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer>
+    <p>🌼 Made with sunshine, soil, and a little bit of magic. 🌼</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
